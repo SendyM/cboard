@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS dashboard_board;
+
 CREATE TABLE dashboard_board (
   board_id bigint(20) NOT NULL AUTO_INCREMENT,
   user_id varchar(50) NOT NULL,
@@ -6,6 +8,7 @@ CREATE TABLE dashboard_board (
   layout_json text,
   PRIMARY KEY (board_id)
 );
+DROP TABLE IF EXISTS dashboard_category;
 
 CREATE TABLE dashboard_category (
   category_id bigint(20) NOT NULL AUTO_INCREMENT,
@@ -13,6 +16,7 @@ CREATE TABLE dashboard_category (
   user_id varchar(100) NOT NULL,
   PRIMARY KEY (category_id)
 );
+DROP TABLE IF EXISTS dashboard_datasource;
 
 CREATE TABLE dashboard_datasource (
   datasource_id bigint(20) NOT NULL AUTO_INCREMENT,
@@ -22,6 +26,7 @@ CREATE TABLE dashboard_datasource (
   config text,
   PRIMARY KEY (datasource_id)
 );
+DROP TABLE IF EXISTS dashboard_widget;
 
 CREATE TABLE dashboard_widget (
   widget_id bigint(20) NOT NULL AUTO_INCREMENT,
@@ -31,6 +36,7 @@ CREATE TABLE dashboard_widget (
   data_json text,
   PRIMARY KEY (widget_id)
 );
+DROP TABLE IF EXISTS dashboard_dataset;
 
 CREATE TABLE dashboard_dataset (
   dataset_id bigint(20) NOT NULL AUTO_INCREMENT,
@@ -40,6 +46,7 @@ CREATE TABLE dashboard_dataset (
   data_json text,
   PRIMARY KEY (dataset_id)
 );
+DROP TABLE IF EXISTS dashboard_user;
 
 CREATE TABLE dashboard_user (
   user_id varchar(50) NOT NULL,
@@ -53,12 +60,15 @@ CREATE TABLE dashboard_user (
 INSERT INTO dashboard_user (user_id,login_name,user_name,user_password)
 VALUES('1', 'admin', 'Administrator', 'ff9830c42660c1dd1942844f8069b74a');
 
+DROP TABLE IF EXISTS dashboard_user_role;
+
 CREATE TABLE dashboard_user_role (
   user_role_id bigint(20) NOT NULL AUTO_INCREMENT,
   user_id varchar(100) DEFAULT NULL,
   role_id varchar(100) DEFAULT NULL,
   PRIMARY KEY (user_role_id)
 );
+DROP TABLE IF EXISTS dashboard_role;
 
 CREATE TABLE dashboard_role (
   role_id varchar(100) NOT NULL,
@@ -66,6 +76,7 @@ CREATE TABLE dashboard_role (
   user_id varchar(50) DEFAULT NULL,
   PRIMARY KEY (role_id)
 );
+DROP TABLE IF EXISTS dashboard_role_res;
 
 CREATE TABLE dashboard_role_res (
   role_res_id bigint(20) NOT NULL AUTO_INCREMENT,
@@ -75,7 +86,7 @@ CREATE TABLE dashboard_role_res (
   permission varchar(20) DEFAULT NULL,
   PRIMARY KEY (role_res_id)
 );
-
+DROP TABLE IF EXISTS dashboard_job;
 CREATE TABLE dashboard_job (
   job_id bigint(20) NOT NULL AUTO_INCREMENT,
   job_name varchar(200) DEFAULT NULL,
@@ -91,6 +102,7 @@ CREATE TABLE dashboard_job (
   PRIMARY KEY (job_id)
 );
 
+DROP TABLE IF EXISTS dashboard_board_param;
 CREATE TABLE dashboard_board_param (
   board_param_id bigint(20) NOT NULL AUTO_INCREMENT,
   user_id varchar(50) NOT NULL,
